@@ -1,14 +1,15 @@
-# AI-Driven Doc## Team Overview
+# AI-Driven Document QA & Decision System for HackRx
 
-* **Team Name:** Synapse, **Members:** Dipan Dhali (2026, IIITDM Jabalpur), Krishnand Yadav (2026), Devesh Gangani (2026), Deepnara* **Ethical Bias* **Innovation:** By combining vector search, LLMs, and a knowledge graph, our approach goes beyond keyword lookup or simple QA. It's scalable (cloud-based, modular) and secure (encryption, auth).
+## Project Overview
 
----
-
-## Anything Else The model must not discriminate (e.g. age, gender) improperly. We include domain-appropriate guidelines in prompts (e.g. "Ignore protected attributes unless required by policy") and allow manual override of outputs.
+We are developing a unique and innovative approach to building an LLM-powered Document Processing System for natural language queries over unstructured documents. We'll explore the latest relevant technologies, such as RAG, semantic search frameworks, document intelligence APIs, and new LLM orchestration tools. The final result will include well-structured content for a PPT presentation, with architecture and data flow diagrams in Mermaid format.
 
 ---
 
-## Acceptance Criteria Coverage Sett (2026) – all final-year students at IIITDM Jabalpur.
+## Team Overview
+
+* **Team Name:** Synapse
+* **Members:** Dipan Dhali (2026, IIITDM Jabalpur), Krishnand Yadav (2026), Devesh Gangani (2026), Deepnarayan Sett (2026) – all final-year students at IIITDM Jabalpur.
 * **About Us:** We are an award-winning hackathon team (SIH 2024 finalist, HackByte 2025 winners), with experience in secure document management (e.g. blockchain-based file organization) and AI applications.
 
 ---
@@ -68,29 +69,7 @@ flowchart TB
 
 ### System Components
 
-# Process Flow & Architecture
-
-Our system follows a modular pipeline:
-
-```mermaid
-flowchart TB
-    subgraph Ingestion
-      A[Input Documents<br/>(PDF, Word, Emails)] --> B[Text Extraction<br/>(OCR/Text Parsing)]
-      B --> C[Chunking & Preprocessing]
-      C --> D[Embed & Index<br/>in Vector Database]
-    end
-
-    subgraph Query Handling
-      Q[User Query] --> E[Query Parsing<br/>(LLM/NLU)]
-      E --> F[Semantic Search<br/>in Vector DB]
-      F --> G[Retrieve Top-K<br/>Relevant Clauses]
-      G --> H[LLM Reasoner + Rule Engine]
-      H --> I[Decision JSON<br/>& Clause References]
-    end
-
-    style Ingestion fill:#f9f,stroke:#333,stroke-width:2px
-    style Query Handling fill:#bbf,stroke:#333,stroke-width:2px
-```
+### System Components
 
 * **Doc Ingestion:** We use tools like Apache Tika or AWS Textract/GCP Document AI to convert PDFs/Word into raw text (including OCR for scanned images). We then **chunk documents** by clauses or sections and index them with embeddings (e.g. OpenAI/GPT embeddings or HuggingFace sentence transformers) in a vector store (like **Qdrant** or **Pinecone**). This implements the RAG ingestion pipeline.
 * **Query Processing:** The user’s natural language query is fed to an LLM or NLP parser. For instance, GPT-4 can parse “46-year-old male, knee surgery…” into structured slots (age=46, sex=male, procedure=knee surgery, location=Pune, policy\_age=3 months). This ensures the system understands even vague or shorthand queries.
